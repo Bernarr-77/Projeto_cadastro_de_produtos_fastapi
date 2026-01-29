@@ -1,17 +1,9 @@
 # python -m fastapi dev .\cadastro_produtos\main.py
 
 from fastapi import FastAPI,HTTPException
-from pydantic import BaseModel
 from itertools import count
-from typing import Optional
-
-class ProdutoInput(BaseModel):
-    nome: Optional[str] = None
-    quantidade: Optional[int] = None
-    valor: Optional[float] = None
-
-class Produtos(ProdutoInput):
-    id: int
+from schemas import ProdutoInput, Produtos
+from database import conexao, cursor
 
 lista_produtos = []
 
