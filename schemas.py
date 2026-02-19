@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 from typing import Optional
+from datetime import date
 
 class ProdutoInput(BaseModel):
-    nome: str
+    nome: Optional[str] = None
     quantidade: Optional[int] = None
     valor: Optional[float] = None
 
